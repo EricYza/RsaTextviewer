@@ -1,0 +1,268 @@
+:root {
+  color-scheme: light;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary: #475569;
+  --danger: #dc2626;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.top-bar {
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.top-bar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.top-bar a {
+  color: #fff;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+input[type="text"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+textarea {
+  font-family: "Fira Code", "Consolas", monospace;
+  min-height: 300px;
+  resize: vertical;
+}
+
+button,
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+  background: var(--primary-dark);
+  text-decoration: none;
+}
+
+.btn.secondary {
+  background: var(--secondary);
+}
+
+.btn.secondary:hover {
+  background: #1f2937;
+}
+
+.btn.danger {
+  background: var(--danger);
+}
+
+.btn.danger:hover {
+  background: #b91c1c;
+}
+
+button:active,
+.btn:active {
+  transform: translateY(1px);
+}
+
+.flash-container {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.flash {
+  padding: 0.9rem 1.1rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.flash-success {
+  border-color: #15803d;
+  background: rgba(21, 128, 61, 0.1);
+}
+
+.flash-warning {
+  border-color: #f97316;
+  background: rgba(249, 115, 22, 0.12);
+}
+
+.flash-info {
+  border-color: #2563eb;
+}
+
+.file-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.file-table th,
+.file-table td {
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.file-table tr:last-child td {
+  border-bottom: none;
+}
+
+.file-table .actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.file-table form {
+  display: inline;
+}
+
+.meta {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.meta dt {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.meta dd {
+  margin: 0.25rem 0 0;
+}
+
+pre.content {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.footer {
+  color: var(--muted);
+  text-align: center;
+  padding: 2rem 0 3rem;
+}
+
+@media (max-width: 640px) {
+  .file-table thead {
+    display: none;
+  }
+
+  .file-table tr {
+    display: grid;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .file-table td {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    padding: 0.25rem 0;
+  }
+
+  .file-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--muted);
+    margin-right: 1rem;
+  }
+
+  .file-table .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

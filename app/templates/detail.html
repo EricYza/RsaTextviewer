@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}View {{ text_file.display_name }}{% endblock %}
+
+{% block content %}
+<section class="card">
+  <header class="card-header">
+    <h2>{{ text_file.display_name }}</h2>
+    <div class="card-actions">
+  <a class="btn" href="{{ url_for('main.edit', file_id=text_file.id) }}">Edit</a>
+  <a class="btn secondary" href="{{ url_for('main.index') }}">Back to list</a>
+    </div>
+  </header>
+  <dl class="meta">
+    <div>
+      <dt>Original filename</dt>
+      <dd>{{ text_file.original_filename }}</dd>
+    </div>
+    <div>
+      <dt>Uploaded at</dt>
+      <dd>{{ text_file.created_at.strftime('%Y-%m-%d %H:%M') }}</dd>
+    </div>
+    <div>
+      <dt>Last updated</dt>
+      <dd>{{ text_file.updated_at.strftime('%Y-%m-%d %H:%M') }}</dd>
+    </div>
+  </dl>
+  <pre class="content">{{ text_file.content | e }}</pre>
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Edit {{ text_file.display_name }}{% endblock %}
+
+{% block content %}
+<section class="card">
+  <header class="card-header">
+  <h2>Edit file</h2>
+  <a class="btn secondary" href="{{ url_for('main.detail', file_id=text_file.id) }}">Cancel</a>
+  </header>
+  <form action="{{ url_for('main.edit', file_id=text_file.id) }}" method="post" enctype="multipart/form-data" class="form-grid">
+  <label for="display_name">Display name</label>
+    <input type="text" id="display_name" name="display_name" value="{{ text_file.display_name }}">
+
+  <label for="content">File content</label>
+  <textarea id="content" name="content" rows="16">{{ text_file.content | e }}</textarea>
+
+  <p class="hint">Upload another TXT file to replace the current content:</p>
+    <input type="file" id="file" name="file" accept=".txt">
+
+  <button type="submit">Save changes</button>
+  </form>
+</section>
+{% endblock %}

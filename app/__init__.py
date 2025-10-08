@@ -2,7 +2,10 @@
 
 from typing import Optional
 
+from dotenv import load_dotenv
 from flask import Flask
+
+load_dotenv()
 
 from .config import get_config
 from .models import db

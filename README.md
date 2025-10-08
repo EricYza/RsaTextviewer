@@ -40,32 +40,36 @@ A lightweight Flask application backed by SQLAlchemy that lets you upload, brows
 
 4. **Configure the database connection**
 
-   The application uses SQLite (`textviewer.db`) by default. To switch to MySQL:
+   The application uses SQLite (`textviewer.db`) by default. To connect to your Azure PostgreSQL instance:
 
    ```powershell
    Copy-Item .env.example .env
    notepad .env
    ```
 
-   Update `DATABASE_URL`, for example:
+   Fill in the `POSTGRES_*` entries with your server credentials. They map to the values Azure displays in the connection string, for example:
 
    ```
-   mysql+pymysql://username:password@localhost:3306/textviewer
+   POSTGRES_USER=bsgwfnomek
+   POSTGRES_PASSWORD=<your_password>
+   POSTGRES_HOST=text-server.postgres.database.azure.com
+   POSTGRES_PORT=5432
+   POSTGRES_DB=postgres
    ```
 
-   Create the database if it does not exist yet:
+   Alternatively, you can set a full SQLAlchemy URL via `DATABASE_URL`, e.g.:
 
-   ```sql
-   CREATE DATABASE textviewer CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   ```
+   postgresql+psycopg2://bsgwfnomek:<your_password>@text-server.postgres.database.azure.com:5432/postgres?sslmode=require
    ```
 
 5. **Run the development server**
 
    ```powershell
-   flask --app app:create_app --debug run
+   flask --app run run
    ```
 
-   Visit `http://127.0.0.1:5000/` in your browser to try it out.
+   Visit `http://127.0.0.1:5000/` (or the host configured in `run.py`) in your browser to try it out.
 
 ## Running tests
 

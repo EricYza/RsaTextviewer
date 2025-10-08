@@ -1,4 +1,0 @@
-# Copy this file to .env and adjust the values to match your environment.
-SECRET_KEY=change-me
-DATABASE_URL=mysql+pymysql://root:Yza20020928@localhost:3306/textviewer
-

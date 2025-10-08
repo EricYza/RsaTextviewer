@@ -44,7 +44,7 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
+    SQLALCHEMY_DATABASE_URI = (
         _build_postgres_uri()
     )
 
